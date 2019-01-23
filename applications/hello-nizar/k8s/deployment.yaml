@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-nizar
+  labels:
+    app: hello-nizar
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: hello-nizar
+    tier: hello-nizar
+  type: NodePort
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-nizar
+  labels:
+    app: hello-nizar
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: hello-nizar
+        tier: hello-nizar
+    spec:
+      containers:
+      - image: 127.0.0.1:30400/hello-nizar:$BUILD_TAG
+        name: hello-nizar
+        ports:
+        - containerPort: 80
+          name: hello-nizar
