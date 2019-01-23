@@ -22,8 +22,8 @@ node {
 
     stage "Deploy"
 
-        // kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nizar_kubeconfig'
-         kubernetesDeploy configs: '/var/jenkins_home/.kube/config/applications/hello-nizar/k8s/deployment.yaml', kubeconfigId: 'nizar_kubeconfig'
+         kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nizar_kubeconfig'
+        // kubernetesDeploy configs: '/var/jenkins_home/.kube/config/applications/hello-nizar/k8s/deployment.yaml', kubeconfigId: 'nizar_kubeconfig'
          // sh "sed 's#__IMAGE__#'$BUILDIMG'#' applications/${appName}/k8s/deployment.yaml | kubectl apply -f -"
 
 }
