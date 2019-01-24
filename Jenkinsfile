@@ -20,6 +20,9 @@ node {
 
         sh "docker push ${imageName}"
 
+    stage "test"
+        sh "kubectl config view"
+
     stage "Deploy"
 
          kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nizar_kubeconfig'
