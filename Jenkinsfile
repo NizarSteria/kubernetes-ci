@@ -20,8 +20,12 @@ node {
 
         sh "docker push ${imageName}"
 
-    stage "test"
+    stage "config"
+
         sh "kubectl config view"
+        sh "kubectl config current-context"
+        sh "kubectl get service"
+        sh "minikube ip"
 
     stage "Deploy"
 
