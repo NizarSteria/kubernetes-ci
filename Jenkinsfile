@@ -24,8 +24,9 @@ node {
 
         sh "kubectl config view"
         sh "kubectl config current-context"
-        sh "kubectl get service"
         sh "minikube ip"
+        sh "kubectl get service"
+       
 
     stage "Deploy"
 
