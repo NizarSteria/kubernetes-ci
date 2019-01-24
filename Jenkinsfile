@@ -24,7 +24,6 @@ node {
 
         sh "kubectl config view"
         sh "kubectl config current-context"
-        sh "minikube ip"
         sh "kubectl get service"
        
 
